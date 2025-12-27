@@ -4,40 +4,42 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="The Fury Saga Universe by J.C. Johnson — prophecy, curses, and steel that remembers." />
+  <meta name="author" content="J.C. Johnson" />
   <title>The Fury Saga Universe — J.C. Johnson</title>
 
-  <!-- Open Graph (optional) -->
+  <!-- Social preview (optional—add og:image later) -->
   <meta property="og:title" content="The Fury Saga Universe — J.C. Johnson" />
   <meta property="og:description" content="Prophecy can’t change. Evil never dies." />
   <meta property="og:type" content="website" />
 
   <style>
     :root{
-      --bg:#07080a;
-      --panel:#0d1014;
-      --panel2:#0a0c10;
-      --text:#e9eef5;
-      --muted:#aab6c6;
-      --rust:#b43a2f;
+      --bg0:#05060a;
+      --bg1:#070a0f;
+      --panel:rgba(255,255,255,.04);
+      --panel2:rgba(255,255,255,.025);
+      --line:rgba(255,255,255,.10);
+      --text:#eaf0f7;
+      --muted:#a6b3c4;
+      --steel:#9fb0c6;
       --ember:#ff5a3d;
-      --steel:#8ea2b8;
-      --line: rgba(255,255,255,.10);
-      --shadow: 0 18px 60px rgba(0,0,0,.6);
+      --rust:#b43a2f;
+      --shadow: 0 18px 70px rgba(0,0,0,.65);
       --radius: 18px;
-      --max: 1100px;
+      --max: 1120px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(1200px 700px at 70% 10%, rgba(255,90,61,.10), transparent 60%),
-        radial-gradient(900px 600px at 20% 30%, rgba(142,162,184,.10), transparent 55%),
+        radial-gradient(1200px 700px at 70% 15%, rgba(255,90,61,.12), transparent 60%),
+        radial-gradient(900px 600px at 20% 20%, rgba(159,176,198,.10), transparent 60%),
         radial-gradient(700px 700px at 50% 90%, rgba(180,58,47,.12), transparent 60%),
-        linear-gradient(180deg, #06070a, #07080a 40%, #05060a);
+        linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
 
@@ -46,62 +48,65 @@
     .skip{position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;}
     .skip:focus{left:18px; top:18px; width:auto; height:auto; padding:10px 12px; background:#000; border:1px solid var(--line); border-radius:10px; z-index:9999;}
 
-    /* Top Nav */
-    .nav{
+    /* NAV */
+    header{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(7,8,10,.55);
+      backdrop-filter: blur(14px);
+      background: rgba(5,6,10,.62);
       border-bottom:1px solid var(--line);
     }
-    .nav-inner{
+    .nav{
       display:flex; align-items:center; justify-content:space-between;
       padding:14px 0;
-      gap:12px;
+      gap:14px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px; text-decoration:none;
-      letter-spacing:.12em;
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+      letter-spacing:.16em;
       text-transform:uppercase;
-      font-weight:700;
+      font-weight:800;
       font-size:12px;
+      color:rgba(234,240,247,.92);
     }
     .mark{
-      width:28px; height:28px; border-radius:10px;
-      background:
-        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.20), transparent 60%),
-        linear-gradient(135deg, rgba(255,90,61,.25), rgba(142,162,184,.15));
+      width:30px; height:30px; border-radius:12px;
       border:1px solid rgba(255,255,255,.14);
-      box-shadow: 0 10px 35px rgba(0,0,0,.45);
-      position:relative;
-      overflow:hidden;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.22), transparent 60%),
+        linear-gradient(135deg, rgba(255,90,61,.25), rgba(159,176,198,.15));
+      box-shadow: 0 12px 40px rgba(0,0,0,.45);
+      position:relative; overflow:hidden;
     }
     .mark::after{
       content:"";
-      position:absolute; inset:-40%;
-      background: conic-gradient(from 240deg, transparent, rgba(255,90,61,.22), transparent);
+      position:absolute; inset:-45%;
+      background: conic-gradient(from 200deg, transparent, rgba(255,90,61,.22), transparent);
       animation: spin 10s linear infinite;
     }
     @keyframes spin{to{transform:rotate(360deg)}}
 
-    .nav-links{
-      display:flex; align-items:center; gap:16px;
+    nav{
+      display:flex; align-items:center; gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
-    .nav-links a{
+    nav a{
       text-decoration:none;
       font-size:12px;
-      color:var(--muted);
+      color:rgba(166,179,196,.92);
       padding:8px 10px;
       border-radius:10px;
       border:1px solid transparent;
-      transition: .2s ease;
+      transition:.2s ease;
     }
-    .nav-links a:hover{
-      color:var(--text);
-      border-color: rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
+    nav a:hover{
+      color:rgba(234,240,247,.98);
+      border-color:rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
     }
+
+    /* BUTTONS */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding:12px 14px;
@@ -110,131 +115,118 @@
       background: rgba(255,255,255,.04);
       color:var(--text);
       text-decoration:none;
-      font-weight:650;
+      font-weight:700;
       font-size:13px;
       transition:.2s ease;
-      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+      box-shadow: 0 14px 46px rgba(0,0,0,.35);
+      cursor:pointer;
     }
     .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.26); background: rgba(255,255,255,.06);}
     .btn.primary{
-      background: linear-gradient(135deg, rgba(180,58,47,.65), rgba(255,90,61,.25));
-      border-color: rgba(255,90,61,.35);
+      background: linear-gradient(135deg, rgba(180,58,47,.75), rgba(255,90,61,.25));
+      border-color: rgba(255,90,61,.40);
     }
-    .btn.primary:hover{border-color: rgba(255,90,61,.55);}
+    .btn.primary:hover{border-color: rgba(255,90,61,.60);}
 
-    /* Hero */
+    /* HERO */
     .hero{
-      padding:56px 0 28px;
+      padding:64px 0 30px;
       position:relative;
     }
     .hero::before{
       content:"";
-      position:absolute; inset:-120px 0 auto 0; height:520px;
+      position:absolute; inset:-180px 0 auto 0; height:640px;
       background:
-        radial-gradient(900px 340px at 50% 0%, rgba(255,90,61,.18), transparent 70%),
-        radial-gradient(700px 300px at 20% 20%, rgba(142,162,184,.14), transparent 65%),
-        radial-gradient(700px 300px at 80% 30%, rgba(180,58,47,.12), transparent 65%);
+        radial-gradient(900px 360px at 50% 0%, rgba(255,90,61,.18), transparent 70%),
+        radial-gradient(700px 320px at 20% 25%, rgba(159,176,198,.16), transparent 65%),
+        radial-gradient(700px 320px at 80% 35%, rgba(180,58,47,.12), transparent 65%);
       pointer-events:none;
-      filter: blur(0px);
     }
-
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:20px;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
       align-items:stretch;
     }
-    @media (max-width: 900px){
-      .hero-grid{grid-template-columns:1fr; }
-      .nav-links{gap:8px}
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr;}
     }
 
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.10);
       border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
       box-shadow: var(--shadow);
-    }
-    .hero-left{
-      padding:26px;
       overflow:hidden;
       position:relative;
     }
-    .hero-left::after{
-      content:"";
-      position:absolute; inset:auto -10% -55% -10%;
-      height:380px;
-      background:
-        radial-gradient(closest-side, rgba(255,90,61,.22), transparent 70%),
-        radial-gradient(closest-side, rgba(142,162,184,.10), transparent 70%);
-      transform: rotate(-8deg);
-      pointer-events:none;
-    }
 
+    .hero-left{padding:26px;}
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
       padding:8px 10px;
       border:1px solid rgba(255,255,255,.12);
       border-radius: 999px;
-      color: var(--muted);
+      color:rgba(166,179,196,.95);
       font-size:12px;
-      letter-spacing:.08em;
+      letter-spacing:.10em;
       text-transform:uppercase;
-      background: rgba(0,0,0,.25);
+      background: rgba(0,0,0,.20);
     }
     .dot{
       width:8px; height:8px; border-radius:50%;
-      background: rgba(255,90,61,.65);
+      background: rgba(255,90,61,.70);
       box-shadow: 0 0 20px rgba(255,90,61,.45);
     }
 
     h1{
-      margin:14px 0 8px;
-      font-size: clamp(34px, 4vw, 52px);
-      line-height:1.05;
-      letter-spacing:-.02em;
+      margin:14px 0 10px;
+      font-size: clamp(38px, 4.6vw, 58px);
+      line-height:1.02;
+      letter-spacing:-.03em;
+    }
+    .h1-glow{
+      display:inline-block;
+      text-shadow:
+        0 0 22px rgba(255,90,61,.18),
+        0 0 60px rgba(255,90,61,.10);
     }
     .tagline{
-      margin:0 0 16px;
-      font-size: clamp(14px, 1.6vw, 18px);
-      color: var(--muted);
-      max-width: 62ch;
+      margin:0 0 18px;
+      font-size: clamp(15px, 1.6vw, 19px);
+      color:rgba(166,179,196,.96);
+      line-height:1.55;
+      max-width: 70ch;
     }
-    .hero-ctas{
-      display:flex; gap:12px; flex-wrap:wrap;
-      margin-top:16px;
-    }
+
+    .hero-ctas{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px;}
     .quote{
       margin:18px 0 0;
-      padding:14px 14px;
-      border-radius: 14px;
-      border:1px dashed rgba(255,255,255,.18);
-      background: rgba(0,0,0,.22);
-      color: rgba(233,238,245,.92);
-      font-style: italic;
-    }
-    .quote strong{font-style:normal}
-
-    /* Book cover placeholder */
-    .hero-right{
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .cover{
+      padding:16px;
       border-radius: 16px;
+      border:1px dashed rgba(255,255,255,.18);
+      background:
+        radial-gradient(220px 140px at 20% 20%, rgba(255,90,61,.10), transparent 70%),
+        rgba(0,0,0,.18);
+      color: rgba(234,240,247,.92);
+      font-style: italic;
+      line-height:1.5;
+    }
+    .quote strong{font-style:normal; color:rgba(234,240,247,.98);}
+
+    /* RIGHT: COVER + QUICK LINKS */
+    .hero-right{padding:18px; display:flex; flex-direction:column; gap:12px;}
+    .cover{
+      border-radius: 18px;
       border:1px solid rgba(255,255,255,.12);
       background:
         radial-gradient(90px 90px at 30% 25%, rgba(255,255,255,.14), transparent 60%),
-        radial-gradient(180px 140px at 70% 30%, rgba(255,90,61,.12), transparent 70%),
-        linear-gradient(180deg, rgba(13,16,20,.92), rgba(8,10,14,.92));
-      box-shadow: 0 18px 50px rgba(0,0,0,.55);
+        radial-gradient(220px 160px at 70% 30%, rgba(255,90,61,.12), transparent 70%),
+        linear-gradient(180deg, rgba(13,16,20,.92), rgba(7,9,13,.92));
+      box-shadow: 0 18px 55px rgba(0,0,0,.60);
       aspect-ratio: 3/4;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
       padding:18px;
+      display:flex; flex-direction:column; justify-content:flex-end;
       position:relative;
       overflow:hidden;
     }
@@ -242,164 +234,215 @@
       content:"";
       position:absolute; inset:-30%;
       background:
-        conic-gradient(from 190deg, transparent, rgba(255,90,61,.18), transparent),
+        conic-gradient(from 190deg, transparent, rgba(255,90,61,.20), transparent),
         radial-gradient(closest-side at 50% 45%, rgba(255,90,61,.15), transparent 68%);
       filter: blur(2px);
       animation: drift 14s ease-in-out infinite alternate;
       pointer-events:none;
     }
     @keyframes drift{from{transform:translate(-1%, -1%) rotate(-4deg)} to{transform:translate(1%, 1%) rotate(4deg)}}
-
-    .cover h2{margin:0; font-size:18px; letter-spacing:.08em; text-transform:uppercase}
-    .cover p{margin:6px 0 0; color:var(--muted); font-size:13px}
-    .cover small{color: rgba(233,238,245,.8)}
-    .cover .stamp{
+    .stamp{
       position:absolute; top:14px; left:14px;
       font-size:11px;
-      color: rgba(233,238,245,.85);
+      letter-spacing:.08em;
+      text-transform:uppercase;
       padding:8px 10px;
-      border-radius: 999px;
+      border-radius:999px;
       border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.25);
+      background: rgba(0,0,0,.22);
+      color: rgba(234,240,247,.90);
     }
+    .cover h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    .cover p{margin:6px 0 0; color:rgba(166,179,196,.94); font-size:13px}
 
-    /* Sections */
-    section{padding:26px 0}
+    .mini{
+      padding:14px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+    .mini .row{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .mini .row:last-child{border-bottom:none}
+    .mini .row span{color:rgba(166,179,196,.95); font-size:12px}
+    .mini .row a{
+      font-size:12px;
+      text-decoration:none;
+      color:rgba(234,240,247,.92);
+      border:1px solid rgba(255,255,255,.14);
+      padding:8px 10px;
+      border-radius:12px;
+      background: rgba(255,255,255,.03);
+    }
+    .mini .row a:hover{background: rgba(255,255,255,.06);}
+
+    /* SECTIONS */
+    section{padding:28px 0}
     .section-head{
       display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      margin-bottom:14px;
+      margin:0 0 14px;
     }
     h3{
       margin:0;
       font-size:18px;
-      letter-spacing:.08em;
+      letter-spacing:.10em;
       text-transform:uppercase;
     }
     .sub{
-      margin:0;
-      color:var(--muted);
+      margin:6px 0 0;
+      color:rgba(166,179,196,.95);
       font-size:13px;
-      max-width: 70ch;
+      max-width: 78ch;
+      line-height:1.6;
     }
-    .grid-3{
-      display:grid; gap:14px;
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @media (max-width: 900px){
-      .grid-3{grid-template-columns:1fr;}
-    }
-    .panel{
-      padding:16px;
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius);
-      box-shadow: 0 14px 44px rgba(0,0,0,.35);
-    }
-    .panel p{margin:8px 0 0; color:var(--muted); line-height:1.55}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      font-size:12px; color: rgba(233,238,245,.92);
-      padding:8px 10px; border-radius: 999px;
-      border:1px solid rgba(255,255,255,.12);
+    .badge{
+      font-size:11px; letter-spacing:.10em; text-transform:uppercase;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
       background: rgba(0,0,0,.22);
+      color: rgba(234,240,247,.86);
+      white-space:nowrap;
+    }
+    .divider{
+      height:1px; width:100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+      margin: 10px 0 0;
     }
 
-    /* Books list */
-    .books{
-      display:grid; gap:14px;
-      grid-template-columns: 1fr 1fr;
-      align-items:stretch;
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
     }
-    @media (max-width: 900px){ .books{grid-template-columns:1fr;} }
-    .book{
-      display:flex; flex-direction:column; gap:10px;
+    @media (max-width: 920px){ .grid-3{grid-template-columns:1fr;} }
+
+    .panel{
       padding:16px;
       border-radius: var(--radius);
       border:1px solid rgba(255,255,255,.10);
       background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.18));
+      box-shadow: 0 14px 44px rgba(0,0,0,.35);
       position:relative;
       overflow:hidden;
     }
-    .book::after{
+    .panel::after{
       content:"";
-      position:absolute; inset:auto -10% -60% -10%; height:320px;
-      background: radial-gradient(closest-side, rgba(180,58,47,.22), transparent 70%);
-      transform: rotate(-12deg);
+      position:absolute; inset:auto -10% -70% -10%;
+      height:320px;
+      background: radial-gradient(closest-side, rgba(255,90,61,.14), transparent 70%);
+      transform: rotate(-10deg);
       pointer-events:none;
     }
-    .book h4{margin:0; font-size:16px}
-    .book .meta{display:flex; gap:10px; flex-wrap:wrap; color:var(--muted); font-size:12px}
-    .book .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
-    .muted{color:var(--muted)}
-    .badge{
-      font-size:11px; letter-spacing:.08em; text-transform:uppercase;
-      padding:8px 10px; border-radius: 999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.24);
-      color: rgba(233,238,245,.88);
-      width: fit-content;
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px;
+      color: rgba(234,240,247,.92);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.20);
     }
-    .badge.live{border-color: rgba(255,90,61,.35); background: rgba(255,90,61,.10);}
+    .panel p{margin:10px 0 0; color:rgba(166,179,196,.95); line-height:1.6;}
 
-    /* Lore block */
-    .lore{
-      display:grid; gap:14px;
+    /* BOOKS */
+    .books{
+      display:grid;
       grid-template-columns: 1fr 1fr;
+      gap:14px;
     }
-    @media (max-width: 900px){ .lore{grid-template-columns:1fr;} }
-    .lore blockquote{
-      margin:0; padding:16px;
+    @media (max-width: 920px){ .books{grid-template-columns:1fr;} }
+
+    .book{
+      padding:16px;
       border-radius: var(--radius);
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.22);
-      color: rgba(233,238,245,.92);
-      line-height:1.55;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.20));
+      box-shadow: 0 14px 44px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
     }
-    blockquote footer{
-      margin-top:10px; color:var(--muted); font-size:12px;
+    .book::before{
+      content:"";
+      position:absolute; inset:-50%;
+      background: radial-gradient(closest-side at 30% 20%, rgba(159,176,198,.12), transparent 65%);
+      pointer-events:none;
     }
+    .book h4{margin:8px 0 6px; font-size:16px;}
+    .meta{display:flex; flex-wrap:wrap; gap:10px; color:rgba(166,179,196,.95); font-size:12px;}
+    .book p{margin:10px 0 0; color:rgba(166,179,196,.95); line-height:1.6;}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
+    .live{border-color: rgba(255,90,61,.38); background: rgba(255,90,61,.10);}
 
-    /* Mailing list */
-    .signup{
-      display:grid; gap:14px;
-      grid-template-columns: 1.1fr .9fr;
+    /* LORE QUOTE */
+    .lore{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
       align-items:stretch;
     }
-    @media (max-width: 900px){ .signup{grid-template-columns:1fr;} }
-    .form{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top:10px;
+    @media (max-width: 920px){ .lore{grid-template-columns:1fr;} }
+    blockquote{
+      margin:0;
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(260px 170px at 20% 20%, rgba(255,90,61,.12), transparent 70%),
+        rgba(0,0,0,.20);
+      color: rgba(234,240,247,.92);
+      line-height:1.6;
+      box-shadow: 0 14px 44px rgba(0,0,0,.35);
     }
+    blockquote footer{margin-top:10px; color:rgba(166,179,196,.95); font-size:12px;}
+
+    /* SIGNUP */
+    .signup{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+    }
+    @media (max-width: 920px){ .signup{grid-template-columns:1fr;} }
+    form{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
     input[type="email"]{
-      flex: 1 1 220px;
+      flex:1 1 240px;
       padding:12px 12px;
-      border-radius: 12px;
+      border-radius:12px;
       border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.25);
+      background: rgba(0,0,0,.22);
       color: var(--text);
       outline:none;
     }
-    input[type="email"]::placeholder{color: rgba(170,182,198,.75)}
+    input[type="email"]::placeholder{color: rgba(166,179,196,.75)}
     .fine{
       margin-top:10px;
+      color: rgba(166,179,196,.90);
       font-size:12px;
-      color: rgba(170,182,198,.85);
-      line-height:1.45;
+      line-height:1.5;
     }
 
-    /* Footer */
+    /* FOOTER */
     footer{
-      padding:26px 0 40px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
+      padding:28px 0 44px;
+      border-top:1px solid rgba(255,255,255,.10);
+      color:rgba(166,179,196,.95);
       font-size:13px;
     }
-    .footer-inner{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;}
-    .footer-links{display:flex; gap:14px; flex-wrap:wrap;}
-    .footer-links a{color:var(--muted); text-decoration:none;}
-    .footer-links a:hover{color:var(--text);}
+    .foot{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      flex-wrap:wrap;
+    }
+    .foot a{color:rgba(166,179,196,.95); text-decoration:none;}
+    .foot a:hover{color:rgba(234,240,247,.98);}
 
-    /* Reveal animations */
+    /* REVEAL */
     .reveal{opacity:0; transform: translateY(10px); transition: .6s ease;}
     .reveal.show{opacity:1; transform: translateY(0);}
   </style>
@@ -408,13 +451,13 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="nav">
-    <div class="wrap nav-inner">
+  <header>
+    <div class="wrap nav">
       <a class="brand" href="#top" aria-label="The Fury Saga Universe">
         <span class="mark" aria-hidden="true"></span>
         <span>Fury Saga Universe</span>
       </a>
-      <nav class="nav-links" aria-label="Site navigation">
+      <nav aria-label="Site navigation">
         <a href="#universe">Universe</a>
         <a href="#books">Books</a>
         <a href="#characters">Characters</a>
@@ -426,22 +469,21 @@
   </header>
 
   <main id="main">
-    <div id="top" class="hero">
+    <section id="top" class="hero">
       <div class="wrap hero-grid">
         <div class="card hero-left reveal">
           <div class="kicker"><span class="dot"></span> Official Series Hub</div>
-          <h1>THE FURY SAGA</h1>
+          <h1><span class="h1-glow">THE FURY SAGA</span></h1>
           <p class="tagline">
-            Prophecy can’t change. Evil never dies. In this universe, steel remembers—every mile, every bruise, every name.
+            Prophecy can’t change. Evil never dies.
+            In this universe, steel remembers—every mile, every bruise, every name.
             The curse doesn’t haunt a house. It rides the road.
           </p>
-
           <div class="hero-ctas">
             <a class="btn primary" href="#books">Start with Book One</a>
             <a class="btn" href="#universe">Enter the Universe</a>
             <a class="btn" href="#signup">Get Updates</a>
           </div>
-
           <div class="quote">
             <strong>Prophecy speaks of a storm—</strong><br/>
             a curse bound to blood and steel.<br/>
@@ -454,21 +496,28 @@
             <div class="stamp">Cinematic • Supernatural Thriller</div>
             <div>
               <h2>Fury: Book One</h2>
-              <p><small>By J.C. Johnson</small></p>
-              <p class="muted">Replace this placeholder with your real cover image.</p>
+              <p>By J.C. Johnson</p>
+              <p>Replace this cover block with your real cover image when ready.</p>
             </div>
           </div>
 
-          <div class="panel">
-            <div class="pill">Quick setup</div>
-            <p>
-              Add your cover by replacing the “cover” block background with an image,
-              or drop an <code>&lt;img&gt;</code> inside it. Then update the “Buy / Read” links in the Books section.
-            </p>
+          <div class="mini" aria-label="Quick actions">
+            <div class="row">
+              <span>Book One</span>
+              <a href="#books">View</a>
+            </div>
+            <div class="row">
+              <span>Mailing List</span>
+              <a href="#signup">Join</a>
+            </div>
+            <div class="row">
+              <span>Lore Archive</span>
+              <a href="#lore">Explore</a>
+            </div>
           </div>
         </aside>
       </div>
-    </div>
+    </section>
 
     <section id="universe">
       <div class="wrap">
@@ -481,12 +530,13 @@
           </div>
           <span class="badge">Steel • Prophecy • Road</span>
         </div>
+        <div class="divider"></div>
 
-        <div class="grid-3">
+        <div class="grid-3" style="margin-top:14px;">
           <div class="panel reveal">
             <div class="pill">Mythology</div>
             <p>
-              A prophecy threads through generations. It doesn’t predict—it <em>arrives</em>.
+              A prophecy threads through generations. It doesn’t predict—it arrives.
               When darkness rises, the curse responds.
             </p>
           </div>
@@ -517,36 +567,37 @@
           </div>
           <span class="badge live">Book One • Available</span>
         </div>
+        <div class="divider"></div>
 
-        <div class="books">
+        <div class="books" style="margin-top:14px;">
           <article class="book reveal">
-            <div class="badge live">Available Now</div>
+            <span class="badge live">Available Now</span>
             <h4>Fury: Book One</h4>
             <div class="meta">
               <span>Supernatural Thriller</span>
               <span>Detroit roots</span>
               <span>Prophecy awakens</span>
             </div>
-            <p class="muted">
+            <p>
               A curse bound to blood and steel resurfaces—pulling Arlene Cunningway into a legacy of secrets, violence,
               and something that refuses to stay dead.
             </p>
             <div class="actions">
-              <!-- Replace links with your Amazon / Barnes & Noble / etc. -->
+              <!-- Replace # with your retailer links -->
               <a class="btn primary" href="#" target="_blank" rel="noreferrer">Buy / Read</a>
               <a class="btn" href="#signup">Get Updates</a>
             </div>
           </article>
 
           <article class="book reveal">
-            <div class="badge">Coming Soon</div>
+            <span class="badge">Coming Soon</span>
             <h4>Fury: Book Two</h4>
             <div class="meta">
               <span>Road reckoning</span>
               <span>Heat & shadows</span>
               <span>Curse travels</span>
             </div>
-            <p class="muted">
+            <p>
               The journey continues beyond Detroit. The saga turns south, the past follows,
               and the road becomes a witness.
             </p>
@@ -554,47 +605,4 @@
               <a class="btn" href="#signup">Notify Me</a>
               <a class="btn" href="#lore">Explore Lore</a>
             </div>
-          </article>
-        </div>
-
-        <div class="panel reveal" style="margin-top:14px;">
-          <div class="pill">Tip</div>
-          <p>
-            Want a dedicated page per book? Duplicate the layout into <code>book-one.html</code>, <code>book-two.html</code>,
-            then link them from the cards above.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="characters">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h3>Characters & Legacy</h3>
-            <p class="sub">In the Fury Saga, nobody is “chosen.” They’re inherited—like debt, like steel, like fire.</p>
-          </div>
-          <span class="badge">Profiles</span>
-        </div>
-
-        <div class="grid-3">
-          <div class="panel reveal">
-            <div class="pill">Arlene Cunningway</div>
-            <p>
-              Reluctant heir, forced to read the past written into metal. She isn’t chasing answers—she’s being chased by them.
-            </p>
-          </div>
-          <div class="panel reveal">
-            <div class="pill">Witnesses</div>
-            <p>
-              Mechanics, cops, locals—people who saw too much, said too little, and learned what happens when a rumor becomes real.
-            </p>
-          </div>
-          <div class="panel reveal">
-            <div class="pill">The Inheritors</div>
-            <p>
-              Bloodlines cross, choices echo, and names repeat. Some fight the curse. Some feed it.
-            </p>
-          </div>
-  
-  
+    
